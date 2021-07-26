@@ -1,0 +1,53 @@
+html, body { height: 100%; }
+
+h3, button, ul, li { margin: 0; padding: 0; }
+
+li { list-style: none; }
+
+a { color: #fff; text-decoration: none; }
+
+button { overflow: visible; outline: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; border: 0; }
+
+.fulllayer { display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; z-index: 500; }
+
+.fulllayer .pop-head { position: relative; z-index: 9; overflow: hidden; border-bottom: 1px solid #f3f3f3; padding: 0 0 0 2rem; width: calc(100% - 2rem); height: 5.3rem; background: #fff; }
+
+.fulllayer .pop-head h3 { white-space: nowrap; overflow: hidden; word-break: break-all; text-overflow: ellipsis; -o-text-overflow: ellipsis; vertical-align: middle; display: inline-block; line-height: 1.1; float: left; width: calc(100% - 5.5rem); padding: 1.7rem 0; font-size: 1.3rem; font-weight: 600; }
+
+.fulllayer .pop-head .layerClose { float: right; display: block; width: 3rem; height: 3.3rem; font-size: 1.3rem; color: #737171; position: relative; }
+
+.fulllayer .pop-conts { height: calc(100% - 5.3rem); padding: 2rem; overflow-y: auto; }
+
+.point-password-keypad { padding-top: 79.5px; text-align: center; }
+
+.point-password-keypad .keypad-message h4 { padding-bottom: 20px; color: #222; font-size: 22px; font-weight: bold; }
+
+.point-password-keypad .keypad-message p { color: #666; font-size: 13px; }
+
+.point-password-keypad .pw-forget { margin-top: rem(30px); }
+
+.point-password-keypad .pw-forget a { color: #666; font-size: rem(12px); text-decoration: underline; }
+
+.point-password-keypad .keypad-circle { padding-top: 40px; text-align: center; }
+
+.point-password-keypad .keypad-circle i { display: inline-block; width: 18px; height: 18px; margin: 0 7.5px; border-radius: 50%; background-color: #eff2f9; }
+
+.point-password-keypad .keypad-circle i.keyon { background-color: #4737df; }
+
+.security-keypad { position: relative; visibility: hidden; position: fixed; left: 0; bottom: -100%; width: 100%; -webkit-transition: 0.4s ease-in-out; transition: 0.4s ease-in-out; background-color: #4737df; }
+
+.security-keypad.show { visibility: visible; bottom: 0; }
+
+.security-keypad ul { width: 100%; overflow: hidden; }
+
+.security-keypad ul li { float: left; width: calc(100% / 3); }
+
+.security-keypad ul li:nth-child(10) { margin-left: calc(100% / 3); }
+
+.security-keypad ul button { display: block; color: #fff; background: #fafafa; font-size: 18px; width: 100%; min-height: 60px; text-align: center; background-color: #4737df; }
+
+.security-keypad .key-random, .security-keypad .key-back { position: absolute; bottom: 0; width: calc((100% / 3)); min-height: 60px; color: #fff; font-size: 18px; font-weight: bold; text-align: center; background-color: #4737df; }
+
+.security-keypad .key-random { left: 0; }
+
+.security-keypad .key-back { right: 0; background-size: 32px auto; }
