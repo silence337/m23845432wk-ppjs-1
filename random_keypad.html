@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <link rel="stylesheet" type="text/css" href="../css/keypad.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>랜덤 넘버 키패드</title>
+</head>
+<body>
+
+<!-- 랜덤키패드 Full Popup -->
+<div class="fulllayer" id="keyPadPopUp">
+    <div class="layerWrap">
+        <div class="pop-head">
+            <h3>비밀번호</h3>	
+        </div>
+        <div class="pop-conts full">
+            <div class="point-password-keypad">
+                <div class="keypad-message">
+                    <h4>비밀번호 입력</h4>
+                    <p>비밀번호 6자리를 입력해 주세요</p>
+                </div>
+
+                <!-- keypad cirlce hidden number -->
+                <div id="keyInsert">
+                    <input type="hidden" data-hidden-key>
+                </div>
+                <!-- //keypad cirlce hidden number -->
+
+                <div class="pw-forget">
+                    <a href="javascript:;">비밀번호를 잊으셨나요?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //랜덤키패드 Full Popup -->
+
+<!-- example passwod input value test -->
+<input type="text" id="pointPass">
+<!-- //example passwod input value test -->
+
+<!-- keypad.js -->
+<script src="keypad.js"></script>
+<script>
+
+/*  keypad JS object init
+*   randomKeypad.elem     -->   <input type="hidden" data-hidden-key>
+*   randomKeypad.Reload() -->   번호 재배열 (Dom reload => value Reset)
+*/
+var randomKeypad = new SecurityKeypad('.pop-conts', {
+    complete : function () {
+        exampleTest();
+    }
+});
+
+//example Test !!
+var exampleTest = function () {
+    var keyValue = randomKeypad.elem.value;
+    var testPasswod = '000000';
+
+    if(keyValue == testPasswod){
+        $('#pointPass').val(keyValue); //test
+        $('#keyPadPopUp').hide();
+
+        // keypad hide
+        randomKeypad.Hide();
+    } else {
+        // keypad reload
+        randomKeypad.Reload();
+        console.log('비밀번호 불일치');
+    }
+}
+
+$(document).ready(function () {
+    $('#keyPadPopUp').show();
+});
+</script>
+</body>
+</html>
+
