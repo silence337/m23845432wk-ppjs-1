@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <link rel="stylesheet" type="text/css" href="keypad.css">
+    <link rel="stylesheet" type="text/css" href="../css/keypad.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>랜덤 넘버 키패드</title>
 </head>
@@ -46,8 +46,8 @@
 <script>
 
 /*  keypad JS object init
-*   randomKeypad.elem     -->   <input type="hidden" data-hidden-key>
-*   randomKeypad.Reload() -->   번호 재배열 (Dom reload => value Reset)
+*   randomKeypad.hiddenKey -->   <input type="hidden" data-hidden-key>
+*   randomKeypad.Reload()  -->   번호 재배열 (Dom reload => value Reset)
 */
 var randomKeypad = new SecurityKeypad('.pop-conts', {
     complete : function () {
@@ -57,7 +57,7 @@ var randomKeypad = new SecurityKeypad('.pop-conts', {
 
 //example Test !!
 var exampleTest = function () {
-    var keyValue = randomKeypad.elem.value;
+    var keyValue = randomKeypad.hiddenKey.value;
     var testPasswod = '000000';
 
     if(keyValue == testPasswod){

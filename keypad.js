@@ -10,9 +10,9 @@
 var SecurityKeypad = function (el, opt) {
 	var me = this;
 	this.addElementTarget = document.querySelector(el);
-	this.elem = document.querySelector('[data-hidden-key]');
+	this.hiddenKey = document.querySelector('[data-hidden-key]');
 	this.keypadNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-	if (this.elem == null) {
+	if (this.hiddenKey == null) {
 		console.error('input element insert html <input type="hidden" data-hidden-key>');
 	}
 	var defaults = {
@@ -109,12 +109,12 @@ SecurityKeypad.prototype = {
 	},
 	_Keyon : function (e) {
 		e.preventDefault();
-		var sortValue = this.elem.value;
+		var sortValue = this.hiddenKey.value;
 		var n = sortValue + e.currentTarget.dataset.keyNumber;
 		var max = 7;
 
 		if(n.length < max)  {
-			this.elem.value = n;
+			this.hiddenKey.value = n;
 			this.circleIdx = (n.length - 1);
 			this.circleElement[this.circleIdx].classList.add('keyon');
 		}
@@ -139,7 +139,7 @@ SecurityKeypad.prototype = {
 			circle += '<i></i>';
 		}
 		circle += '</div>';
-		this.elem.insertAdjacentHTML('beforebegin', circle);
+		this.hiddenKey.insertAdjacentHTML('beforebegin', circle);
 		circle = null;
 		this.circleParent = document.querySelector('.keypad-circle');
 		this.circleElement = this.circleParent.querySelectorAll('i');
@@ -152,7 +152,7 @@ SecurityKeypad.prototype = {
 			me.keyPad.remove();
 			me.circleParent.remove();
 			me.keyPad = null;
-			me.elem.value = null;
+			me.hiddenKey.value = null;
 			me.keyRandom.removeEventListener('click', this.IntRandom);
 			me.keyBack.removeEventListener('click', this.IntkeyBack);
 			me._addEvent();
@@ -165,12 +165,12 @@ SecurityKeypad.prototype = {
 		this.circleParent.remove();
 		this.keyPad = null;
 		this.circleParent = null;
-		this.elem.value = null;
+		this.hiddenKey.value = null;
 	},
 	_RandomKey : function (e) {
 		e.preventDefault();
 		this.keyInsert.remove();
-		this.elem.value = null;
+		this.hiddenKey.value = null;
 		this.circleParent.querySelectorAll('i').forEach(function (elem) {
 			elem.classList.remove('keyon');
 		});
@@ -180,10 +180,10 @@ SecurityKeypad.prototype = {
 	_RemoveKey : function (e) {
 		e.preventDefault();
 		//console.log(this.elem.value.length);
-		if(this.elem.value.length < 1){
+		if(this.hiddenKey.value.length < 1){
 			return;
 		}
-		this.elem.value = this.elem.value.slice(0,-1);
+		this.hiddenKey.value = this.elem.value.slice(0,-1);
 		this.circleElement[this.circleIdx].classList.remove('keyon');
 		this.circleIdx--;
 		return;
