@@ -12,7 +12,7 @@
 <!-- //keypad cirlce hidden number -->
 ```
 
-## instance 
+## Constructor 
 ```html
 var randomKeypad = new SecurityKeypad('selector', {
     complete : function () {
